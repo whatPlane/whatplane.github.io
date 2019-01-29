@@ -52,7 +52,7 @@ Don't guess if your [hyperlink syntax](http://markdownpad.com) is correct; LiveP
 
 ## 插入图片 ##
 ![](https://gitee.com/whatplane/resource/raw/master/img/set.png) 
-
+> 我的图片资源都放置在gitchina的仓库里面
 
 ## 分割线 ##
 ***
