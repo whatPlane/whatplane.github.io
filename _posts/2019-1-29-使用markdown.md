@@ -10,46 +10,30 @@ tags:                               #标签
     - tool
 ---
 
-## markdwon的使用演示
->这是markdown工具的介绍。
+- ## <font color=red> 博客展示如下： </font> ##
 
-## Welcome to MarkdownPad 2 ##
+# 大小不同的标题
+## 大小不同的标题
+### 大小不同的标题
 
-**MarkdownPad** is a full-featured Markdown editor for Windows.
+## 展示引用 ##
+>这是markown工具的介绍 --鲁迅
 
-### Built exclusively for Markdown ###
+## 加粗字体 ##
 
-Enjoy first-class Markdown support with easy access to  Markdown syntax and convenient keyboard shortcuts.
+**MarkdownPad**  is a full-featured Markdown editor for Windows.
 
-Give them a try:
 
-- **Bold** (`Ctrl+B`) and *Italic* (`Ctrl+I`)
-- Quotes (`Ctrl+Q`)
-- Code blocks (`Ctrl+K`)
-- Headings 1, 2, 3 (`Ctrl+1`, `Ctrl+2`, `Ctrl+3`)
-- Lists (`Ctrl+U` and `Ctrl+Shift+O`)
+## 斜体字 ##
+* 这是斜体字 * 而你现在看到的是普通字
 
-### See your changes instantly with LivePreview ###
+## 无序列表 ##
 
-Don't guess if your [hyperlink syntax](http://markdownpad.com) is correct; LivePreview will show you exactly what your document looks like every time you press a key.
-
-### Make it your own ###
-
-Fonts, color schemes, layouts and stylesheets are all 100% customizable so you can turn MarkdownPad into your perfect editor.
-
-### A robust editor for advanced Markdown users ###
-
-MarkdownPad supports multiple Markdown processing engines, including standard Markdown, Markdown Extra (with Table support) and GitHub Flavored Markdown.
-
-With a tabbed document interface, PDF export, a built-in image uploader, session management, spell check, auto-save, syntax highlighting and a built-in CSS management interface, there's no limit to what you can do with MarkdownPad.
-
-***
-# 学习使用markdwon #
 - 基本使用
 - 基本使用2
 
 
-## 第二个小结 ##
+## 有序列表 ##
 1. 第一步
 	- one step
 	- two step
@@ -58,7 +42,15 @@ With a tabbed document interface, PDF export, a built-in image uploader, session
 	- two step
 3. 第三部
 
+## 插入网址 ##
+Don't guess if your [hyperlink syntax](http://markdownpad.com) is correct; LivePreview will show you exactly what your document looks like every time you press a key.
+
+## 插入图片 ##
+![](https://gitee.com/whatplane/resource/raw/master/img/set.png) 
+
+## 分割线 ##
 ***
+
 ## 演示怎么插入代码
 ```
 skynet.start(function()
@@ -75,58 +67,31 @@ end)
 ```
 
 
-**hello**
->你是对的 --鲁迅
-
-
-这是演示插入张图片：
-![](https://gitee.com/whatplane/resource/raw/master/img/set.png) 
-
-
-
-## 下面是md文件的主要内容 
+- ## <font color=red> md源文件主要内容如下： </font> ##
 
 ```
-## markdwon的使用演示
->这是markdown工具的介绍。
+# 大小不同的标题
+## 大小不同的标题
+### 大小不同的标题
 
-## Welcome to MarkdownPad 2 ##
+## 展示引用 ##
+>这是markown工具的介绍 --鲁迅
 
-**MarkdownPad** is a full-featured Markdown editor for Windows.
+## 加粗字体 ##
 
-### Built exclusively for Markdown ###
+**MarkdownPad**  is a full-featured Markdown editor for Windows.
 
-Enjoy first-class Markdown support with easy access to  Markdown syntax and convenient keyboard shortcuts.
 
-Give them a try:
+## 斜体字 ##
+* 这是斜体字 * 而你现在看到的是普通字
 
-- **Bold** (`Ctrl+B`) and *Italic* (`Ctrl+I`)
-- Quotes (`Ctrl+Q`)
-- Code blocks (`Ctrl+K`)
-- Headings 1, 2, 3 (`Ctrl+1`, `Ctrl+2`, `Ctrl+3`)
-- Lists (`Ctrl+U` and `Ctrl+Shift+O`)
+## 无序列表 ##
 
-### See your changes instantly with LivePreview ###
-
-Don't guess if your [hyperlink syntax](http://markdownpad.com) is correct; LivePreview will show you exactly what your document looks like every time you press a key.
-
-### Make it your own ###
-
-Fonts, color schemes, layouts and stylesheets are all 100% customizable so you can turn MarkdownPad into your perfect editor.
-
-### A robust editor for advanced Markdown users ###
-
-MarkdownPad supports multiple Markdown processing engines, including standard Markdown, Markdown Extra (with Table support) and GitHub Flavored Markdown.
-
-With a tabbed document interface, PDF export, a built-in image uploader, session management, spell check, auto-save, syntax highlighting and a built-in CSS management interface, there's no limit to what you can do with MarkdownPad.
-
-***
-# 学习使用markdwon #
 - 基本使用
 - 基本使用2
 
 
-## 第二个小结 ##
+## 有序列表 ##
 1. 第一步
 	- one step
 	- two step
@@ -135,19 +100,15 @@ With a tabbed document interface, PDF export, a built-in image uploader, session
 	- two step
 3. 第三部
 
-***
+## 插入网址 ##
+Don't guess if your [hyperlink syntax](http://markdownpad.com) is correct; LivePreview will show you exactly what your document looks like every time you press a key.
 
-**hello**
->你是对的 --鲁迅
-
-
-这是演示插入张图片：
+## 插入图片 ##
 ![](https://gitee.com/whatplane/resource/raw/master/img/set.png) 
 
-
-
+## 分割线 ##
+***    
 ```
-
 ## 插入代码的方法
 ![](https://gitee.com/whatplane/resource/raw/master/img/markdown-1.png)
 > 字符 ` 的在键盘的位置如下：
