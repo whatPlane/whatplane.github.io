@@ -10,7 +10,7 @@ tags:                               #标签
     - tool
 ---
 
- <font size =6 color=red> 博客展示如下： </font> 
+# 博客展示如下： 
 ***
 
 # 大小不同的标题
@@ -20,16 +20,18 @@ tags:                               #标签
 ## 展示引用 ##
 >这是markown工具的介绍 --鲁迅
 
-## 加粗字体 ##
 
+
+## 加粗字体 ##
 **MarkdownPad**  is a full-featured Markdown editor for Windows.
 
 
 ## 斜体字 ##
 * 这是斜体字 * 而你现在看到的是普通字
 
-## 无序列表 ##
 
+
+## 无序列表 ##
 - 基本使用
 - 基本使用2
 
@@ -43,14 +45,18 @@ tags:                               #标签
 	- two step
 3. 第三部
 
+
 ## 插入网址 ##
 Don't guess if your [hyperlink syntax](http://markdownpad.com) is correct; LivePreview will show you exactly what your document looks like every time you press a key.
+
 
 ## 插入图片 ##
 ![](https://gitee.com/whatplane/resource/raw/master/img/set.png) 
 
+
 ## 分割线 ##
 ***
+
 
 ## 演示怎么插入代码
 ```
@@ -68,7 +74,7 @@ end)
 ```
 
 
-<font size = 6 color=red> md源文件主要内容如下： </font> 
+# md源文件主要内容如下：  
 ***
 
 ```
