@@ -9,10 +9,10 @@ catalog: true                       # 是否归档
 tags:                               #标签
     - tool
 ---
-# 1:我使用screen的目的
+# 为什么使用screen
 当你在ssh terminal执行shell时，如果网络这时断开，你的程序会怎样？TERMINATED呀！有了screen，就可以让程序跑在screen而不会随着ssh的断开而断开 
 
-# 2:screen的使用
+# screen的使用
 1.安装Screen
 CentOS系统中执行：yum install screen 
 
