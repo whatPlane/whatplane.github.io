@@ -13,10 +13,10 @@ tags:                               #标签
 当你在ssh terminal执行shell时，如果网络这时断开，你的程序会怎样？TERMINATED呀！有了screen，就可以让程序跑在screen而不会随着ssh的断开而断开 
 
 # screen的使用
-1.安装Screen
+1. 安装Screen
 CentOS系统中执行：yum install screen 
 
-2.常用命令
+2. 常用命令
 screen -S test    #创建一个名为test的会话<br/>
 screen -ls            #列出所有会话<br/>
 screen -d test    #卸载名为test的会话，但会话中的任务会继续执行。<br/>
