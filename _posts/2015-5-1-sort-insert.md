@@ -12,6 +12,8 @@ tags:                               #标签
 # 插入排序
 - 时间复杂度是n的2次方
 - 排序完成后结果是 array[i] <= array[i+1]
+
+
 ```
 //insert_sort.c  
 #include<stdio.h>
