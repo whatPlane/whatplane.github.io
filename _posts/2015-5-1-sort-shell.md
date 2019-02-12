@@ -75,7 +75,6 @@ void checkSwap(int* arr,int n,int j,int step)
    
 }
 ```
-
 1. 希尔排序的特点是 实现大的跳跃交换
 2. 通过划分不同间隔的组来实现
 3. 比如当前间隔是4 总共有12个元素 那么可以分为3个A B C组，
@@ -86,7 +85,7 @@ void checkSwap(int* arr,int n,int j,int step)
 
 > 注意：这里说的组 和新序列的 关系 新序列是取出每个组中的第一个元素形成的
 
-
+# 实现一：
 ```
 void fun(int * arr,int n)
 {
@@ -124,9 +123,7 @@ void fun(int * arr,int n)
 
 }
 ```
-
-
-这是稍微优化后的方法，这个方法的工作过程是：
+**方法二** 是稍微优化后的方法。这个方法的工作过程是：
 比如 先设置一个间隔3 总共12个元素 那么会形成4个组 3个序列 A B C 默认第一个组的元素分别是 A B C序列的第一个元素
 接下来处理步骤是
 
@@ -141,9 +138,7 @@ void fun(int * arr,int n)
 这个过程有点类似cpu时间分片，注意参考下图:
 > 图-1
 ![](https://gitee.com/whatplane/resource/raw/master/img/wx_20190212235035.png)
-
-
-
+# 实现二：
 ```
 void fun_optimize(int * arr,int n)
 {
@@ -211,6 +206,7 @@ int main()
     return 0;
 } 
 ```
+
 
 
 
