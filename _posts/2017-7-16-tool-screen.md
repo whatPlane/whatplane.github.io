@@ -17,10 +17,12 @@ tags:                               #标签
 CentOS系统中执行：yum install screen 
 
 2.常用命令
-screen -S test    #创建一个名为test的会话
-screen -ls            #列出所有会话
-screen -d test    #卸载名为test的会话，但会话中的任务会继续执行。
-screen -r test      #恢复名为test的会话
-exit                    #退出当前窗口
+screen -S test    #创建一个名为test的会话<br/>
+screen -ls            #列出所有会话<br/>
+screen -d test    #卸载名为test的会话，但会话中的任务会继续执行。<br/>
+screen -r test      #恢复名为test的会话<br/>
+exit                    #退出当前窗口<br/>
+
+----------
 
 ![](https://gitee.com/whatplane/resource/raw/master/img/36043032.png) 
