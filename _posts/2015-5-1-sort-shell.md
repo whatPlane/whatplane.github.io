@@ -14,7 +14,7 @@ tags:                               #标签
 - 排序完成后结果是 array[i] <= array[i+1]
 - 是对插入排序的改进 因为每次跳跃幅度更大 导致交换减少
 
-> 分组的意思如下如
+> 图-1
 ![](https://gitee.com/whatplane/resource/raw/master/img/wx_20190212235035.png)
 
 ```
@@ -140,7 +140,7 @@ void fun(int * arr,int n)
     处理C序列的第三个元素 
 
 这个过程有点类似cpu时间分片 
-注意参考上面那张分组图
+注意参考上面 图-1
 3 
 
 */
