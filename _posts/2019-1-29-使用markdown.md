@@ -2,7 +2,7 @@
 layout:     post                    # 使用的布局（不需要改）
 title:      markdown简单入门               # 标题 
 subtitle:     #副标题
-date:       2015-3-20              # 时间
+date:       2013-3-20              # 时间
 author:     co                      # 作者
 header-img: img/post-bg-2015.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
