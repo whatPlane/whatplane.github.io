@@ -10,8 +10,8 @@ tags:                               #标签
     - 算法与数据结构
 ---
 ## 现在讨论另外一种stack的实现
-- 前面讨论了stack的一种实现 [回顾stack的实现](https://whatplane.github.io/2015/05/22/stack/)  我们可以知道，这种实现中，head节点右边的第一个节点实际上是栈底节点。
-- 这次我们的实现稍有不同。也就是我们把top位置定义在head节点的右边第一个位置。
+- 前面讨论了stack的一种实现 [回顾stack的实现](https://whatplane.github.io/2015/05/22/stack/)  我们可以知道，这种实现中，head节点右边的第一个节点实际上是**栈底节点**。
+- 这次我们的实现稍有不同。也就是我们把**top位置**定义在head节点的**右边第一个位置**。
 
 下图是他们区别
 ![](https://gitee.com/whatplane/resource/raw/master/img/wx_20190214164221.jpg)
