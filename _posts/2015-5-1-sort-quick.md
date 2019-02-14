@@ -14,6 +14,7 @@ tags:                               #标签
 - 排序完成后结果是 array[i] <= array[i+1]
 
 
+# 代码分析
 ```
 //quick_sort.c  
 #include<stdio.h>
