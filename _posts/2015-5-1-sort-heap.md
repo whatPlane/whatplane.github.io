@@ -12,7 +12,7 @@ tags:                               #标签
 # 堆排序
 - 时间复杂度是logn
 - 我这里是利用数组实现
-- 结构是完全二叉树 （你需要先了解树的相关内容 [http://whatplane.github.io/2017/06/21/gcc/](http://whatplane.github.io/2017/06/21/gcc/ "树")）
+- 结构是完全二叉树 （你需要先了解树的相关内容 [https://whatplane.github.io/2017/06/21/gcc/](http://whatplane.github.io/2017/06/21/gcc/ "树")）
 - 主要操作是 插入 和 删除
 
 
