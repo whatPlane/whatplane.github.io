@@ -9,11 +9,13 @@ catalog: true                       # 是否归档
 tags:                               #标签
     - 算法与数据结构
 ---
-# 希尔排序
+## 希尔排序
 - 平均时间复杂度是n的1.3次方 
 - 排序完成后结果是 array[i] <= array[i+1]
 - 是对插入排序的改进 因为每次跳跃幅度更大 导致交换减少
 
+
+## 代码实现与分析
 
 ```
 //shell_sort.c  
@@ -84,7 +86,7 @@ void checkSwap(int* arr,int n,int j,int step)
 
 > 注意：这里说的组 和新序列的 关系 新序列是取出每个组中的第一个元素形成的
 
-# 实现一：
+## 实现一：
 
 ```
 void fun(int * arr,int n)
@@ -139,7 +141,7 @@ void fun(int * arr,int n)
 这个过程有点类似cpu时间分片，注意参考下图:
 > 图-1
 ![](https://gitee.com/whatplane/resource/raw/master/img/wx_20190212235035.png)
-# 实现二：
+## 实现二：
 
 ```
 void fun_optimize(int * arr,int n)

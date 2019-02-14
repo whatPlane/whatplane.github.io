@@ -9,12 +9,12 @@ catalog: true                       # 是否归档
 tags:                               #标签
     - 算法与数据结构
 ---
-# 快速排序
+## 快速排序
 - 平均时间复杂度是n*logn 最差复杂度是n的2次方
 - 排序完成后结果是 array[i] <= array[i+1]
 
 
-# 代码分析
+## 代码实现与分析
 ```
 //quick_sort.c  
 #include<stdio.h>
@@ -89,7 +89,7 @@ int destroy_arr(int* p)
 
 
 
-# 方法二：
+## 方法二：
 ```
 
 void fun_2(int *arr ,int n)
@@ -149,7 +149,7 @@ void fun_2(int *arr ,int n)
     ...
     
 
-# 方法一：
+## 方法一：
 
 ```
 void fun(int *arr ,int n)
