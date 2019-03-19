@@ -54,7 +54,7 @@ tags:                               #标签
 - 发起方发送fin后此事后收到了fin+ack，也就是表示对方已经收到了我发的fin。则发起方只需要发送ack，告诉对方我也收到了你的fin，即可进入time_wait状态。
 
 
-对于上面的图有rst的地方不是清楚，待研究。
+对于上面的图有RST应该是异常断开。是通知直接移除半连接队列的条目？
 下面是关于同时打开的分析。
 ![](https://gitee.com/whatplane/resource/raw/master/img/wx_20190319115455-min.png)
 同时打开的意思是：当一方发送syn，期望收到syn+ack时，却收到了对方发来的syn。
