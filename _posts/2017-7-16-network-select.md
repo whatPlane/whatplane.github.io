@@ -29,8 +29,8 @@ int select(int nfds, fd_set *readfds, fd_set *writefds,fd_set *exceptfds,
 - readfds writefds exceptfds 是分别需要监听的三个集合。设置为null则表示不关注。
 - timeout是超时设置。
   - 设为为null 则表示一直阻塞等待，知道有事件发生。
-  - 如果 timeout->tv_sec=0 && timeout->tv_usec=0 ,则表示设置select成非阻塞
-  - 如果 timeout->tv_sec！=0 || timeout->tv_usec!=0，则设置超时等待，如果到超时事件还没有事件发生则返回0
+  - 如果 `timeout->tv_sec=0 && timeout->tv_usec=0` 则表示设置select成非阻塞
+  - 如果 `timeout->tv_sec！=0 || timeout->tv_usec!=0`则设置超时等待，如果到超时事件还没有事件发生则返回0
   
 
 
