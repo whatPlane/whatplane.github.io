@@ -133,7 +133,7 @@ int main(int argc, char *argv[])
 
 	event.events=EPOLLIN;
 	event.data.fd=serv_sock;	
-	epoll_ctl(epfd, EPOLL_CTL_ADD, serv_sock, &event);
+	epoll_ctl(epfd, EPOLL_CTL_ADD, serv_sock, &event);//event不需要额外分配空间
 
 	while(1)
 	{
@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
 					accept(serv_sock, (struct sockaddr*)&clnt_adr, &adr_sz);
 				event.events=EPOLLIN;
 				event.data.fd=clnt_sock;
-				epoll_ctl(epfd, EPOLL_CTL_ADD, clnt_sock, &event);
+				epoll_ctl(epfd, EPOLL_CTL_ADD, clnt_sock, &event);//event不需要额外分配空间
 				printf("connected client: %d \n", clnt_sock);
 			}
 			else
@@ -189,7 +189,8 @@ LT触发是sock默认的选项。假设接收缓冲收到了100字节数据，�
 > ET模式必须工作在非阻塞模式。如果不工作在非阻塞模式，那么当有可读事件发生时，想通过循环完全读取缓冲区的数据将导致阻塞，其他sock的通知事件就无法处理了。因为你无法判断数据是否已经完全读完了。而LT模式却可以工作在阻塞模式。因为我们默认LT模式下，只调用一次read，这样收到可读事件时，读取固定长度数据总是会返回，不用担心被阻塞了。
 
 ## EPOLLONESHOT 控制
-
-
+这个选项是为了应付如下场景：一个sock监听了可读事件，如果一个sock的接收缓冲区收到数据，epoll通知`线程1`去读取sock的数据，如果此时epoll发现sock又收到数据，此时再通知`线程2`对sock进行读操作，显然导致两个线程对同一个sock进行操作。
+## 什么时候write数据
+一般我们发送数据的流程是这样。直接调用write。然后根据实际复制到发送缓冲区的数据大小，来决定是否需要关注sock的可写事件。也就是通过epoll_ctl来监听EPOLLOUT事件。如果需要监听可读事件，那么当发送缓冲区的数据被os取走后，epoll得到可写事件时，再把之前剩余的数据写进缓冲区。
 
 ## 结束
