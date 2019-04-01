@@ -1,6 +1,6 @@
 ---
 layout:     post                    # 使用的布局（不需要改）
-title:      归并排序               # 标题 
+title:      merge_sort               # 标题 
 subtitle:     #副标题
 date:       2015-5-10              # 时间
 author:     co                      # 作者
