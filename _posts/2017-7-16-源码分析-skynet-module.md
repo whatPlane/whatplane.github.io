@@ -1,6 +1,6 @@
 ---
 layout:     post                    # 使用的布局（不需要改）
-title:      module              # 标题 
+title:      skyent-module              # 标题 
 subtitle:     #副标题
 date:       2017-7-17              # 时间
 author:     co                      # 作者
