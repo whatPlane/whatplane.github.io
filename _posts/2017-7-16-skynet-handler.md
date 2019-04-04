@@ -16,14 +16,14 @@ tags:                               #标签
 struct handle_storage {
 	struct rwlock lock;
 
-	uint32_t harbor;
+	uint32_t harbor; //代表这个skynet节点的标志
 	uint32_t handle_index;
 	int slot_size;
-	struct skynet_context ** slot;
+	struct skynet_context ** slot;//存放服务的数组
 	
 	int name_cap;
 	int name_count;
-	struct handle_name *name;
+	struct handle_name *name;//handle和名字的映射
 };
 
 skynet_handle_init(int harbor) ｛

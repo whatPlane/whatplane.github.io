@@ -49,12 +49,12 @@ struct skynet_context *ctx = skynet_context_new(config->logservice, config->logg
 skynet_context_new(const char * name, const char *param) {
 	struct skynet_module * mod = skynet_module_query(name);
 
-	void *inst = skynet_module_instance_create(mod);
+	void *inst = skynet_module_instance_create(mod);//产生实例
 	
 	struct skynet_context * ctx = skynet_malloc(sizeof(*ctx));
 	
-	ctx->mod = mod;
-	ctx->instance = inst;
+	ctx->mod = mod;//设置模块
+	ctx->instance = inst;//设置实例
 	......
 
 ```
