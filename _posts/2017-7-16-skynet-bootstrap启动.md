@@ -111,6 +111,15 @@ function skynet.start(start_func)
 		skynet.init_service(start_func)
 	end)
 end
+
+function skynet.timeout(ti, func)
+	local session = c.intcommand("TIMEOUT",ti) //注册定时器
+	assert(session)
+	local co = co_create(func)//预先分配一个协程
+	assert(session_id_coroutine[session] == nil)
+	session_id_coroutine[session] = co //保存起来
+end
+
 ```
 这要是绑定了服务对应的回调函数，通过启动定时器，进行初始化。具体看看 c.callback
 ```
@@ -144,12 +153,12 @@ _cb(struct skynet_context * context, void * ud, int type, int session, uint32_t 
 	lua_pushinteger(L, type);
 	lua_pushlightuserdata(L, (void *)msg);
 	lua_pushinteger(L,sz);
-	lua_pushinteger(L, session);
+	lua_pushinteger(L,  );
 	lua_pushinteger(L, source);
 
 	r = lua_pcall(L, 5, 0 , trace);//最终调用我们的lua层函数 skynet.dispatch_message
 ｝
 ```
-现在我们回到 bootstrap.lua 看看初始化到底做了什么。
+最后bootstrap服务因为定时器回调，开始处理调用skynet.dispatch函数。至于skynet.dispatch是怎么分发收到的消息，请看 [lua层的消息分发](https://whatplane.github.io/2017/07/17/skynet-lua%E5%B1%82%E6%B6%88%E6%81%AF%E5%A4%84%E7%90%86/) 。这个函数最终调用我们的初始化时注册的函数start_func。 现在我们回到 bootstrap.lua 看看初始化到底做了什么。
 
 ### 结束

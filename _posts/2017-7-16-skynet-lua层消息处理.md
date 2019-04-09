@@ -51,10 +51,13 @@ main	false	cannot resume dead coroutine
 
 
 ```
-#### lua层服务的启动
-我们的lua层的服务是怎么启动的？回调函数怎么注册的？
-#### lua层消息的处理
 skynet内部稍微封装了协程，提供了自己的几个协成专用函数。
+
+#### lua层接受消息后的处理过程
+我们的lua层的服务创建后，第一个调用的函数是通过 skynet.start注册的。这个函数是 skynet.dispatch_message。
+```
+
+```
 
 
 ### 结束
