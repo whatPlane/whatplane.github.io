@@ -54,7 +54,7 @@ main	false	cannot resume dead coroutine
 skynet内部稍微封装了协程，提供了自己的几个协成专用函数。
 
 #### lua层接受消息后的处理过程
-我们的lua层的服务创建后，第一个调用的函数是通过 skynet.start注册的。这个函数是 skynet.dispatch_message。
+我们的lua层的服务创建后，第一个调用的函数是通过 skynet.start注册的。这个函数是 skynet.dispatch_message。接下来主要分析整个分发过程
 ```
 
 ```
