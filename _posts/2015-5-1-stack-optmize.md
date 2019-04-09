@@ -7,7 +7,7 @@ author:     co                      # 作者
 header-img: img/post-bg-2015.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - 算法与数据结构
+    - 数据结构和算法基础
 ---
 ## 现在讨论另外一种stack的实现
 - 前面讨论了stack的一种实现 [回顾stack的实现](https://whatplane.github.io/2015/05/22/stack/)  我们可以知道，这种实现中，head节点右边的第一个节点实际上是**栈底节点**。
