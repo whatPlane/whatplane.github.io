@@ -133,8 +133,7 @@ c.send(co_address, skynet.PTYPE_RESPONSE, co_session, f(...))
 
 ```
 bootstrap服务此时，收到launch服务发送的响应消息。通过seesion获得挂起在start里面的协程，通过suspend唤醒这个协程继续执行。
-
 #### 总结
-上面主要分析了 skynet.call的调用方和接收方的处理过程
-
+上面主要分析了 skynet.call的调用方和接收方的处理过程。这是大概的流程演示图
+![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190411174234-min.png)
 ### 结束
