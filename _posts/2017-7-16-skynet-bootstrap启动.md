@@ -159,6 +159,51 @@ _cb(struct skynet_context * context, void * ud, int type, int session, uint32_t 
 	r = lua_pcall(L, 5, 0 , trace);//最终调用我们的lua层函数 skynet.dispatch_message
 ｝
 ```
-最后bootstrap服务因为定时器回调，开始处理调用skynet.dispatch函数。至于skynet.dispatch是怎么分发收到的消息，请看 [lua层的消息分发](https://whatplane.github.io/2017/07/17/skynet-lua%E5%B1%82%E6%B6%88%E6%81%AF%E5%A4%84%E7%90%86/) 。这个函数最终调用我们的初始化时注册的函数start_func。 现在我们回到 bootstrap.lua 看看初始化到底做了什么。
+最后bootstrap服务因为定时器回调，开始处理调用skynet.dispatch函数。至于skynet.dispatch是怎么分发收到的消息，请看 [lua层初始化消息处理](https://whatplane.github.io/2017/07/17/skynet-lua%E5%B1%82%E6%B6%88%E6%81%AF%E5%A4%84%E7%90%86/) 。这个函数最终调用我们的初始化时注册的函数start_func。 现在我们回到 bootstrap.lua 看看初始化到底做了什么。每个节点都是一个slave，如果是主节点，那么会多一个master服务。
+```
+skynet.start(function()
+	local sharestring = tonumber(skynet.getenv "sharestring" or 4096)
+	memory.ssexpand(sharestring)
+
+	local standalone = skynet.getenv "standalone" //配置决定是否作为master节点
+
+	local launcher = assert(skynet.launch("snlua","launcher"))//启动launcher服务，负责创建lua服务
+	skynet.name(".launcher", launcher)
+
+	local harbor_id = tonumber(skynet.getenv "harbor" or 0)
+	if harbor_id == 0 then//单节点模式
+		assert(standalone ==  nil)
+		standalone = true
+		skynet.setenv("standalone", "true")
+
+		local ok, slave = pcall(skynet.newservice, "cdummy")//产生一个slave
+		if not ok then
+			skynet.abort()
+		end
+		skynet.name(".cslave", slave)
+
+	else//多节点模式
+		if standalone then
+			if not pcall(skynet.newservice,"cmaster") then//产生一个master
+				skynet.abort()
+			end
+		end
+
+		local ok, slave = pcall(skynet.newservice, "cslave")//产生一个slave
+		if not ok then
+			skynet.abort()
+		end
+		skynet.name(".cslave", slave)
+	end
+
+	if standalone then
+		local datacenter = skynet.newservice "datacenterd"//一个服务
+		skynet.name("DATACENTER", datacenter)
+	end
+	skynet.newservice "service_mgr"//一个服务
+	pcall(skynet.newservice,skynet.getenv "start" or "main")//我们的所谓的 main 服务
+	skynet.exit()
+end)
+```
 
 ### 结束
