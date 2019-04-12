@@ -386,5 +386,5 @@ forward_message(int type, bool padding, struct socket_message * result) {
 		skynet_free(sm);
 	}
 ```
-
+这里主要是讨论了 lua曾调用socket.listen 和socket.start底层做到事情，接下一篇讨论 [lua层网络监听过程](https://whatplane.github.io/tags/#skynet%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90)
 ### 结束

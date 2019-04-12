@@ -10,7 +10,7 @@ tags:                               #标签
     - skynet源码分析
 ---
 
-我这里主要是通过bootstrap服务，launch服务，来说明lua服务间是怎么发送和接收消息的。在skynet节点启动的时候，我们首先会启动bootstrap服务，而在bootstrap服务的初始化函数里面会启动launch服务，之后又通过launch服务启动其他服务（比如启动slave服务）。关于处理消息的协程的执行流转换，需要一直关注协程的创建代码。如下
+我这里主要是通过bootstrap服务，launch服务，来说明lua服务间是怎么发送和接收消息的。在skynet节点启动的时候，我们首先会启动bootstrap服务，而在bootstrap服务的初始化start函数里面会启动launch服务，之后又通过launch服务启动其他服务（比如启动cdummy服务）。关于处理消息的协程的执行流转换，需要一直关注协程的创建代码。如下
 ```
 local function co_create(f)
 	local co = table.remove(coroutine_pool)
