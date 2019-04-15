@@ -189,4 +189,5 @@ end
 
 ![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190412161602-min.png)
 
+那么监听成功后，收到一个新连接的过程是怎样的？
 ### 结束
