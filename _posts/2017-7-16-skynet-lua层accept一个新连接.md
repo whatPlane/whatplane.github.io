@@ -143,5 +143,5 @@ start_socket(struct socket_server *ss, struct request_start *request, struct soc
 ```
 最后push一个消息到监听服务所在的队列。注意这个网络消息的内部类型是 SKYNET_SOCKET_TYPE_CONNECT 。之后lua层收到消息，唤醒之前的挂起的协程。执行流从 sock.start（id）后面继续。
 
-那么监听成功后，收到一个新连接的过程是怎样的？
+
 ### 结束
