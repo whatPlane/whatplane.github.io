@@ -189,5 +189,5 @@ end
 
 ![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190412161602-min.png)
 
-那么监听成功后，收到一个新连接的过程是怎样的？
+那么监听成功后，收到一个新连接的过程是怎样的？下一篇 [lua层accept一个新连接](https://whatplane.github.io/2018/03/17/skynet-lua%E5%B1%82accept%E4%B8%80%E4%B8%AA%E6%96%B0%E8%BF%9E%E6%8E%A5/)
 ### 结束
