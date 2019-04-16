@@ -10,7 +10,7 @@ tags:                               #标签
     - skynet源码分析
 ---
 
-关闭怎么监听，我们已经讨论过。这次我们还是从下面这段开始分析。不过这次重点是 accept 是如何被调用的
+关于怎么监听，我们已经讨论过。这次我们还是从下面这段开始分析。不过这次重点是 accept 是如何被调用的
 ```
 local skynet    = require "skynet"
 local socket    = require "skynet.socket"
