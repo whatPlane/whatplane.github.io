@@ -263,10 +263,10 @@ return_free_node(lua_State *L, int pool, struct socket_buffer *sb) {
 }
 
 ```
-关于回收的过程，参考下面的图示。这里原本有三个节点被使用，现在回收两个节点。每次回收的节点都是head节点，head节点之后就会作为pool[1]，而socket_buffer中的head节点会由链表的后续节点代替。
+关于回收的过程，参考下面的图示。这里原本有三个节点被使用，现在回收两个节点。每次回收的节点都是head节点，head节点回收之后就会作为pool[1]，而socket_buffer中的新head节点会由老head节点后续节点代替。
 
 ![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190416170637.png)
-而提取指定大小数据的代码如下.这里主要处理的问题是。指定大小的数据是从一个节点中提取，还是需要从多个节点中提取，对应的节点需要回收的问题
+再看提取指定大小数据的代码.这里主要处理的问题是。指定大小的数据是从一个节点中提取，还是需要从多个节点中提取，对应的节点需要回收的问题
 ```
 static int
 lpopbuffer(lua_State *L) {
@@ -279,7 +279,7 @@ lpopbuffer(lua_State *L) {
 	if (sb->size < sz || sz == 0) {
 		lua_pushnil(L);
 	} else {
-		pop_lstring(L,sb,sz,0);
+		pop_lstring(L,sb,sz,0);//把数据作为字符串传递给lua
 		sb->size -= sz;
 	}
 	lua_pushinteger(L, sb->size);
