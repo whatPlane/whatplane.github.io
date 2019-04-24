@@ -1,6 +1,6 @@
 ---
 layout:     post                    # 使用的布局（不需要改）
-title:      skynet-epoll内存分配问题              # 标题 
+title:      skynet-monitor线程              # 标题 
 subtitle:     #副标题
 date:       2018-3-17              # 时间
 author:     co                      # 作者
@@ -9,13 +9,6 @@ catalog: true                       # 是否归档
 tags:                               #标签
     - skynet源码分析
 ---
-之前讨论基本上没有仔细分析内存的分配和释放。这里从三个方面来分别讨论。
-##### 本地服务间的通讯
-
-##### 网络消息的接收-gate服务
-
-##### 网络消息的接收-普通sock
-
-##### 总结
+占位，后续更新
 
 ### 结束
