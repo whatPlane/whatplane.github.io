@@ -1,6 +1,6 @@
 ---
 layout:     post                    # 使用的布局（不需要改）
-title:      skynet-epoll内存分配问题              # 标题 
+title:      skynet-消息的内存分配问题              # 标题 
 subtitle:     #副标题
 date:       2018-3-17              # 时间
 author:     co                      # 作者
