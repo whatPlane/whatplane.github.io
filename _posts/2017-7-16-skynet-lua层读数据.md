@@ -12,7 +12,7 @@ tags:                               #标签
 
 
 当我们accept一个新连接后，假设我们开始读取数据，像下面这样。
-```
+```lua
 skynet.start(function()
     local addr = "0.0.0.0:8001"
     skynet.error("listen " .. addr)
@@ -29,7 +29,7 @@ end
 
 ```
 在调用socket.read函数前，我们先从底层看epoll检测到可读事件时的处理过程。
-```
+```c
 socket_server_poll(struct socket_server *ss, struct socket_message * result, int * more) {
 	...
 	if (e->read) {
@@ -61,7 +61,7 @@ forward_message_tcp(struct socket_server *ss, struct socket *s, struct socket_lo
 ```
 最后这个result把push到sock所在的的服务队列。当服务收到网络可读消息，这时候会协程来处理接收到的数据。
 
-```
+```lua
 local function raw_dispatch_message(prototype, msg, sz, session, source)
 	...
 	local p = proto[prototype]
@@ -73,6 +73,9 @@ local function raw_dispatch_message(prototype, msg, sz, session, source)
 	suspend(co, coroutine_resume(co, session,source, p.unpack(msg,sz)))
 	...
 
+```
+
+```c
 static int
 lunpack(lua_State *L) {//解包函数
 	struct skynet_socket_message *message = lua_touserdata(L,1);
@@ -92,7 +95,7 @@ lunpack(lua_State *L) {//解包函数
 ```
 
 注意下面在sock.lua中注册的分发函数
-```
+```lua
 skynet.register_protocol {
 	name = "socket",
 	id = skynet.PTYPE_SOCKET,	-- PTYPE_SOCKET = 6
@@ -115,7 +118,7 @@ socket_message[1] = function(id, size, data)
 这里来分析`driver.push(s.buffer, buffer_pool, data, size)`是怎样把数据保存起来的。红色表示被使用。下面的图展示从一次push到第三次push。一开始分配了大量的空闲节点。我们认为是一个pool。此时push操作就是从pool中申请一块空闲节点。获得后，挂载数据，最后连接到socket_buffer的尾部。一个socket_buffer就是多个节点的链表。他的大小就是各个节点的数据大小的总和。socket_buffer是该sock收到的所有数据
 ![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190416165157.png)
 结合代码
-```
+```c
 static int
 lpushbuffer(lua_State *L) {
 	struct socket_buffer *sb = lua_touserdata(L,1);
@@ -169,7 +172,7 @@ lpushbuffer(lua_State *L) {
 }
 ```
 当数据保存完之后。我们再来分析sock.read函数。
-```
+```lua
 function socket.read(id, sz)
 	local s = socket_pool[id]
 	assert(s)
@@ -219,7 +222,7 @@ end
 
 #### lua层怎么把网络数据提取出来
 首先看提取所有数据的代码
-```
+```c
 static int
 lreadall(lua_State *L) {
 	struct socket_buffer * sb = lua_touserdata(L, 1);
@@ -267,7 +270,7 @@ return_free_node(lua_State *L, int pool, struct socket_buffer *sb) {
 
 ![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190416170637.png)
 再看提取指定大小数据的代码.这里主要处理的问题是。指定大小的数据是从一个节点中提取，还是需要从多个节点中提取，对应的节点需要回收的问题
-```
+```c
 static int
 lpopbuffer(lua_State *L) {
 	struct socket_buffer * sb = lua_touserdata(L, 1);
