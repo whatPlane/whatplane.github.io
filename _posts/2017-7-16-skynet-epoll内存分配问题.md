@@ -48,7 +48,7 @@ end
 
 看代码skynet.redirect
 
-```
+```lua
 skynet.redirect = function(dest,source,typename,...)
 	return c.redirect(dest, source, proto[typename].id, ...)
 end
