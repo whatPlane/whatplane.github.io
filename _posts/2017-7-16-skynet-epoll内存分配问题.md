@@ -10,6 +10,11 @@ tags:                               #标签
     - skynet源码分析
 ---
 之前讨论基本上没有仔细分析内存的分配和释放。这里从三个方面来分别讨论。
+- 本地服务间通讯
+- 网络消息的接收-gate服务
+- 网络消息的接收-sock.lua文件
+
+
 ##### 本地服务间的通讯
 我们服务间发送信息一般这样调用skyent.send
 ```
@@ -21,7 +26,7 @@ end
 这里p.pack实际上是 skynet.pack。这里可以看[skynet.pack](https://whatplane.github.io/2018/03/17/skynet-skynet.pack/).这里把lua数据转化成了 pointer + size。也就是对应在底层分配了一块内存。最终会在目的服务的队列中push一个消息。而消息的data就是pointer。当我们的目的服务接收到消息时，会通过skynet.unpack把 pointer+ size解包出来，得到lua数据类型。这个时候并没有把pointer指向的内存释放，而是等待lua层消息处理完成后，底层再把pointer指向的内存释放。
 ![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190424185951.png)
 ##### 网络消息的接收-gate服务
-这里主要是处理了首部为2字节的流数据。gate服务收到的网络消息skynet_socket_message格式如下 
+这里主要是处理了首部为2字节的流数据。详细情况见 [gate服务处理大量网络接入](https://whatplane.github.io/2018/03/17/skynet-gate/)gate服务收到的网络消息skynet_socket_message格式如下 
 ![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190424193040.png)
 gate通过过滤 **网络数据** 提取网络包。具体是指把buffer里面的数据copy一份保存到队列，然后释放buffer。也就是说队列里面是有网络数据的。当gate收到网络数据时，转发有两种方式，看下面的代码
 
