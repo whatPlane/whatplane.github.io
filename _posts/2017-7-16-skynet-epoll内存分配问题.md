@@ -81,7 +81,7 @@ send_message(lua_State *L, int source, int idx_type) {
 注意gate转发给watchdog的代码
 
 
-```
+```lua
 skynet.send(watchdog, "lua", "socket", "data", fd, netpack.tostring(msg, sz))
 ```
 
