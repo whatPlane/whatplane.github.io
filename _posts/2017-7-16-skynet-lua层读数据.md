@@ -87,7 +87,7 @@ lunpack(lua_State *L) {//解包函数
 		lua_pushlightuserdata(L, message->buffer);
 	}
 
-	return 4;//返回值是4个，分别是type id ud string
+	return 4;//返回值是4个，分别是type id size data
 }
 ```
 
