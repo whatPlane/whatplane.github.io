@@ -270,7 +270,7 @@ return_free_node(lua_State *L, int pool, struct socket_buffer *sb) {
 
 ![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190416170637.png)
 再看提取指定大小数据的代码.这里主要处理的问题是。指定大小的数据是从一个节点中提取，还是需要从多个节点中提取，对应的节点需要回收的问题
-```cpp
+```
 static int
 lpopbuffer(lua_State *L) {
 	struct socket_buffer * sb = lua_touserdata(L, 1);
