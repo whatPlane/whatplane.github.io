@@ -17,7 +17,7 @@ tags:                               #标签
 
 ##### 本地服务间的通讯
 我们服务间发送信息一般这样调用skyent.send
-```
+```lua
 function skynet.send(addr, typename, ...)
 	local p = proto[typename]
 	return c.send(addr, p.id, 0 , p.pack(...))
@@ -30,7 +30,7 @@ end
 ![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190424193040.png)
 gate通过过滤 **网络数据** 提取网络包。具体是指把buffer里面的数据copy一份保存到队列，然后释放buffer。也就是说队列里面是有网络数据的。当gate收到网络数据时，转发有两种方式，看下面的代码
 
-```
+```lua
 function handler.message(fd, msg, sz)
 	-- recv a package, forward it
 	local c = connection[fd]
@@ -52,7 +52,9 @@ end
 skynet.redirect = function(dest,source,typename,...)
 	return c.redirect(dest, source, proto[typename].id, ...)
 end
+```
 
+```cpp
 static int
 lredirect(lua_State *L) {
 	uint32_t source = (uint32_t)luaL_checkinteger(L,2);
@@ -81,7 +83,9 @@ send_message(lua_State *L, int source, int idx_type) {
 
 ```
 skynet.send(watchdog, "lua", "socket", "data", fd, netpack.tostring(msg, sz))
+```
 
+```c
 static int
 ltostring(lua_State *L) {
 	void * ptr = lua_touserdata(L, 1);
