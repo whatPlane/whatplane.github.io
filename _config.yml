@@ -97,9 +97,9 @@ service-worker: true
 
 
 # Friends
-friends: [
-    {
-        title: "博客园",
-        href: "https://www.cnblogs.com/waittingforyou/archive/2013/01/31/2886279.html"
-    }
-]
+#friends: [
+#    {
+#        title: "博客园",
+#        href: "https://www.cnblogs.com/waittingforyou/archive/2013/01/31/2886279.html"
+#    }
+#]
