@@ -1,0 +1,106 @@
+---
+layout:     post                    # 使用的布局（不需要改）
+title:      git使用               # 标题 
+subtitle:     #副标题
+date:       2015-5-20              # 时间
+author:     co                      # 作者
+header-img: img/post-bg-2015.jpg    #这篇文章标题背景图片
+catalog: true                       # 是否归档
+tags:                               #标签
+    - tool
+---
+
+
+> 使用git这些命令 都需要在仓库所在的目录下操作。也就是要先 `cd 仓库目录`
+
+#### git目录的基本认识
+我们创建一个仓库，会产生一个.git目录。里面有
+- config 一些配置
+- head  当前的分支
+- refs  分支和tag
+- objects 
+
+objects目录会包含三类对象 commit tree blob 。一次commit就会产生一个commit对象，认为是一个快照。本质上一棵树，记录了整个仓库目录的信息。这里blob就是我们的文件。
+```
+git cat-file -t object 可以显示对象类型
+git cat-file -p object 可以显示对象的内容 
+```
+下面是repo1仓库的目录结构
+![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190524175007.png)
+
+![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190524175323-min.png)
+
+![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190524180857.png)
+下面的图显示了
+- 当前分支的几次提交
+- commit对象的内容
+- tree对象的内容
+- blob对象（就是我们的文件）
+![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190524181207-min.png)
+
+#### 重命名
+给文件重命名。原本重命名需要经历删除旧文件(git rm filename )，添加新文件这两步，但是可以直接用
+```
+git mv oldname newname
+```
+
+#### 分支的创建 删除 查看 切换
+git log --all 查看所有分支
+```
+git log --oneline 一行一行显示当前所在分支的所有版本提交记录
+git log --oneline -n2 只显示当前分支的最近的2个版本提交记录 【也可以不要直接写 -2】
+git log --oneline branch_name 显示指定分支的版本提交记录
+git log --oneline --graph 表格表示当前分支版本提交记录
+```
+
+创建分支
+```
+git branch -b new_branch_name 哈希值/分支名字 
+```
+
+删除分支
+```
+git branch -d branch_name （-D表示强制删除）
+```
+
+展示所有本地分支
+```
+git branch -av
+```
+切换本地分支
+```
+git checkout branch_name
+```
+
+#### 提交
+add 和 commit 也可以一次性完成
+```
+git commit -am'add and commit once'
+```
+
+
+
+
+
+
+head认为就是一个指针，指向某一次commit。实际上分支也就是一个commit位置
+
+```
+head父亲 head^ head^1 head~1
+head父亲的父亲 head^1^1 head~2
+head父亲的父亲的父亲 head^1^1^1 head~3
+```
+#### 修改commit message
+
+修改最近一次提交的描述
+```
+git commit --amend
+```
+修改某一次提交的描述 parent_commit 表示你准备要修改的描述 的上一次提交。
+```
+git rebase -i parent_commit
+```
+之后会打开一个编辑界面，需要把pick设置成r
+![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190524204303-min.png)
+当然退出后，才会弹出一个真正编辑commit message的编辑框。这个时候输入即可。
+
