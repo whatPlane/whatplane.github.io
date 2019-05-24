@@ -53,9 +53,14 @@ git log --oneline branch_name 显示指定分支的版本提交记录
 git log --oneline --graph 表格表示当前分支版本提交记录
 ```
 
-创建分支
+创建分支。 commit_version表示已经提交的版本，可以用分支名或者某次commit对应的哈希值。实际上分支也就是一个commit位置
 ```
-git branch -b new_branch_name 哈希值/分支名字 
+git branch -b new_branch_name commit_version 
+
+例如：
+$ git checkout -b co ed47191
+Switched to a new branch 'co'
+
 ```
 
 删除分支
@@ -78,22 +83,28 @@ add 和 commit 也可以一次性完成
 git commit -am'add and commit once'
 ```
 
+#### head
 
-
-
-
-
-head认为就是一个指针，指向某一次commit。实际上分支也就是一个commit位置
-
+- head认为就是一个指针，指向某一次commit。
+- 有时候会比较最近两次commit
 ```
-head父亲 head^ head^1 head~1
-head父亲的父亲 head^1^1 head~2
-head父亲的父亲的父亲 head^1^1^1 head~3
+git diff head head^
 ```
+
+关于head的一点解释：【主要是有时候要看得懂】
+
+意思|表示方法
+:-:|:-:
+head父亲 |head^ 或者 head^1 或者 head~1|
+head父亲的父亲| head^1^1 或者 head~2|
+head父亲的父亲的父亲| head^1^1^1 或者 head~3|
+
+
 #### 修改commit message
 
 修改最近一次提交的描述
 ```
+
 git commit --amend
 ```
 修改某一次提交的描述 parent_commit 表示你准备要修改的描述 的上一次提交。
