@@ -1,6 +1,6 @@
 ---
 layout:     post                    # 使用的布局（不需要改）
-title:      git-bare              # 标题 
+title:      bare参数              # 标题 
 subtitle:     #副标题
 date:       2015-5-20              # 时间
 author:     co                      # 作者
