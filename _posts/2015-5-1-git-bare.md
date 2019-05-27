@@ -1,13 +1,13 @@
 ---
 layout:     post                    # 使用的布局（不需要改）
-title:      git使用-bare              # 标题 
+title:      git-bare              # 标题 
 subtitle:     #副标题
 date:       2015-5-20              # 时间
 author:     co                      # 作者
 header-img: img/post-bg-2015.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - tool
+    - git
 ---
 
 #### 裸仓库
