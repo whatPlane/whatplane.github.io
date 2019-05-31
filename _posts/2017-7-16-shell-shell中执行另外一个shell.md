@@ -11,6 +11,7 @@ tags:                               #标签
 ---
 一般这样使用
 ```
+#!/bin/sh
 source path/sub.sh
 
 . paht/sub.sh	#推荐这种写法。注意.后面有空格
