@@ -122,7 +122,7 @@ function str_test(){
 判断数字大小。举个例子判断分数大于80分。
 
 ```
-
+#!/bin/sh
 if [ ${score} -gt 80 ] #注意中括号开始后又空格，结束前有空格
 then
     echo "good,your score is: ${score} "
