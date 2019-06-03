@@ -2,12 +2,12 @@
 layout:     post                    # 使用的布局（不需要改）
 title:      shell_sort               # 标题 
 subtitle:     #副标题
-date:       2015-5-10              # 时间
+date:       2013-5-10              # 时间
 author:     co                      # 作者
 header-img: img/post-bg-2015.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - 数据结构和算法基础
+    - Data Structures
 ---
 ## 希尔排序
 - 平均时间复杂度是n的1.3次方 

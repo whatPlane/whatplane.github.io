@@ -2,12 +2,12 @@
 layout:     post                    # 使用的布局（不需要改）
 title:      stack-optmize               # 标题 
 subtitle:     #副标题
-date:       2015-5-22              # 时间
+date:       2013-5-22              # 时间
 author:     co                      # 作者
 header-img: img/post-bg-2015.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - 数据结构和算法基础
+    - Data Structures
 ---
 ## 现在讨论另外一种stack的实现
 - 前面讨论了stack的一种实现 [回顾stack的实现](https://whatplane.github.io/2015/05/22/stack/)  我们可以知道，这种实现中，head节点右边的第一个节点实际上是**栈底节点**。
