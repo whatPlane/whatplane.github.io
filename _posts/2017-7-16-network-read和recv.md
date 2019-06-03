@@ -7,7 +7,7 @@ author:     co                      # 作者
 header-img: img/post-bg-2015.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - 网络
+    - network
 ---
 ## read/write 
 产生的sock都有对应的内核接收缓冲区和发送缓冲区。大小是os自动调节。write的本质是把应用层的数据写入到发送缓冲区，至于什么时候发送，全靠os。read的本质是取出接收缓冲区的数据。read/write在阻塞和非阻塞模式下有不同的表现。sock的关闭也可以通过read/write的error反应出来。对端关闭主要分为两种情况，一种是对端的进程异常关闭，这种情况因为os还在，所以fin会依然发送出来，另一种情况是对端主机宕机或者网络断开，这种情况是无法发送出fin的。

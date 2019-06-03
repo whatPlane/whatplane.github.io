@@ -7,7 +7,7 @@ author:     co                      # 作者
 header-img: img/post-bg-2015.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - 网络
+    - network
 ---
 ## 函数基本介绍
 setsockopt主要设置sock的特性 函数原型如下

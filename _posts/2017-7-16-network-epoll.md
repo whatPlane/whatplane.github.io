@@ -7,7 +7,7 @@ author:     co                      # 作者
 header-img: img/post-bg-2015.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - 网络
+    - network
 ---
 ## epoll模型跟select模型的主要区别
 epoll的内部实现是红黑树+链表。树主要用来管理监听的sock，每个sock都在网卡驱动程序里注册了回调函数。一旦sock身上有事件发生，则把对应的sock加入到链表。

@@ -7,7 +7,7 @@ author:     co                      # 作者
 header-img: img/post-bg-2015.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - 网络
+    - network
 ---
 ![](https://gitee.com/whatplane/resource/raw/master/img/2843224-029d06502bd58f0e.png)
 ## MTU
