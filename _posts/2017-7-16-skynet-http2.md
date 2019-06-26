@@ -254,29 +254,15 @@ end
 
 #### 实际操作
 
-在浏览器输入你的ip和port，参数像下面这样。
+在浏览器输入web服务器的ip和port，参数像下面这样。
 ```
 http://ip:port/?color=blue&text=abc
 ```
 
 返回给浏览器的结果如下：
 
-```
-host: 106.12.127.238:8017
-path: /
-query: color= blue
-query: text= abc
------header----
-host = 106.12.127.238:8017
-upgrade-insecure-requests = 1
-accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-user-agent = Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0
-connection = keep-alive
-accept-encoding = gzip, deflate
-accept-language = zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
------body----
+![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190626190420.png)
 
-```
 #### 总结
-这里主要是怎么解析消息头和消息体数据
+主要是解析消息头和消息体数据
 ### 结束
