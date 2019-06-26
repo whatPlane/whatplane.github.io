@@ -113,6 +113,8 @@ host = sprotoloader.load(1):host "package"
 --这里send_request函数，是绑定了s2c协议数据的。所以知道服务器发起请求时，该如何正确打包数据。
 send_request = host:attach(sprotoloader.load(2))
 ```
+
+
 #### 总结
 这里可能产生理解混乱的地方是协议中的request 和 response 的真正作用。只要我们搞清楚了谁是发起请求的那一方就应该没有问题了。
 #### 结束

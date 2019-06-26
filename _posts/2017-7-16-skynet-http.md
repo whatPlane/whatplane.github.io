@@ -1,6 +1,6 @@
 ---
 layout:     post                    # 使用的布局（不需要改）
-title:      http的基本原理              # 标题 
+title:      skynet-http的基本原理              # 标题 
 subtitle:     #副标题
 date:       2018-3-17              # 时间
 author:     co                      # 作者
@@ -52,5 +52,5 @@ hello web<br>
 </html>
 ```
 #### skynet提供的http服务器
-点击进入[skynet中提供的web服务]()
+点击进入[skynet中提供的web服务](https://whatplane.github.io/2018/03/17/skynet-http2/)
 ### 结束

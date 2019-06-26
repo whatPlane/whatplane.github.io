@@ -250,7 +250,13 @@ function M.recvheader(readbytes, lines, header)
 end
 
 ```
-其他的解析就不看了。大致过程已经了解。
+大致过程已经了解。
+
+#### 实际操作
+```
+http://127.0.0.1:8001/?color=blue&text=abc
+```
+
 #### 总结
 这里主要是怎么解析消息头和消息体数据
 ### 结束
