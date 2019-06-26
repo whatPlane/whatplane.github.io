@@ -146,7 +146,7 @@ end)
 end
 ```
 这里主要看看服务器上怎么解析http请求的。也就是 httpd.read_request 函数
-```
+```lua
 local function readall(readbytes, bodylimit)
 	local tmpline = {}
 	-- 把请求行数据和消息头数据放置在tmpline
@@ -210,7 +210,7 @@ function httpd.read_request(...)
 end
 ```
 我们可以继续查看请求数据是如何被解析出来的。但是主要方法是通过 `\r\n` `\r\n\r\n`来做分割数据的。我们再看看
-```
+```lua
 local body = internal.recvheader(readbytes, tmpline, "")
 
 function M.recvheader(readbytes, lines, header)
