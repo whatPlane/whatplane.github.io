@@ -7,7 +7,7 @@ author:     co                      # 作者
 header-img: img/post-bg-2015.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - screen
+    - tool
 ---
 ## 为什么使用screen
 当你在ssh terminal执行shell时，如果网络这时断开，你的服务器程序就会终止。有了screen，就可以让程序跑在screen而不会随着ssh的断开而断开 
