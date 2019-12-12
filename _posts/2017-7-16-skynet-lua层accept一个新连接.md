@@ -87,8 +87,8 @@ report_accept(struct socket_server *ss, struct socket *s, struct socket_message 
 	}
 	ns->type = SOCKET_TYPE_PACCEPT;//注意状态目前是 SOCKET_TYPE_PACCEPT，也就是还没有加入epoll
 	result->opaque = s->opaque;//服务id是监听sock所在的服务的id
-	result->id = s->id;
-	result->ud = id;
+	result->id = s->id;//监听socket的id
+	result->ud = id;//新连接的id
 	result->data = NULL;
 
 	return 1;
