@@ -1,6 +1,6 @@
 ---
 layout:     post                    # 使用的布局（不需要改）
-title:      skynet-lua层服务间消息发送和处理              # 标题 
+title:      skynet-lua层通过launch产生一个新的服务过程              # 标题 
 subtitle:     #副标题
 date:       2018-3-17              # 时间
 author:     co                      # 作者
@@ -134,6 +134,6 @@ c.send(co_address, skynet.PTYPE_RESPONSE, co_session, f(...))
 ```
 bootstrap服务此时，收到launch服务发送的响应消息。通过seesion获得挂起在start里面的协程，通过suspend唤醒这个协程继续执行。
 #### 总结
-上面主要分析了 skynet.call的调用方和接收方的处理过程。这是大概的流程演示图
+上面主要分析了 skynet.call的调用方和接收方的处理过程。这里launch相当于一个中间商。lauch受bootstrp所托，创建cdummy。cdummy创建成功后，通知中间商，中间商再返回bootstrap。这是大概的流程演示图
 ![](https://gitee.com/whatplane/resource/raw/master/img/xx_20190411174234-min.png)
 ### 结束
