@@ -80,9 +80,9 @@ function gateserver.start(handler)
 		unpack = function ( msg, sz )
 			return netpack.filter( queue, msg, sz)//过滤数据
 		end,
-		dispatch = function (_, _, q, type, ...)
+		dispatch = function (_, _, q, type, ...) --如果type为nil 那么表示这次收到的数据不够形成一个完整的包数据。
 			queue = q
-			if type then
+			if type then 
 				MSG[type](...)//通过MSG分发网络消息
 			end
 		end
